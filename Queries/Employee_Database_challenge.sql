@@ -46,3 +46,15 @@ WHERE (ti.to_date = '9999-01-01')
 ORDER BY (e.emp_no) ASC;
 
 SELECT * FROM mentorship_eligibility;
+
+
+SELECT * FROM retirement_titles;
+
+SELECT ri.emp_no, s.salary
+into replaceable_salary
+FROM retirement_info as ri
+inner join salaries as s
+ON (ri.emp_no = s.emp_no);
+SELECT * FROM replaceable_salary;
+
+SELECT sum(salary) FROM replaceable_salary;
